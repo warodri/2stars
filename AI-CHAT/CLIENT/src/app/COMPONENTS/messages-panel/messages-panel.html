@@ -1,0 +1,32 @@
+<section class="messages-panel">
+  <div class="messages-panel__day">Today</div>
+
+  @if (messages$ | async; as messages) {
+    @if (messages.length) {
+      @for (message of messages; track message.id) {
+        <div
+          class="message-row"
+          [class.message-row--incoming]="message.direction === 'incoming'"
+          [class.message-row--outgoing]="message.direction === 'outgoing'"
+        >
+          @if (message.direction === 'incoming') {
+            <div class="message-row__avatar">{{ message.author.slice(0, 2).toUpperCase() }}</div>
+          }
+
+          <div
+            class="message-bubble"
+            [class.message-bubble--incoming]="message.direction === 'incoming'"
+            [class.message-bubble--outgoing]="message.direction === 'outgoing'"
+          >
+            <p>{{ message.text }}</p>
+            <span>{{ formatTime(message.createdAt) }}</span>
+          </div>
+        </div>
+      }
+    } @else {
+      <div class="messages-panel__empty">
+        Select a channel and send a message. Messages processed by the queue will appear here.
+      </div>
+    }
+  }
+</section>

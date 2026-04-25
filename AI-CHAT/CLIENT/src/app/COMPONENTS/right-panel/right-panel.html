@@ -1,0 +1,19 @@
+<section class="right-panel">
+  @if (info$ | async; as info) {
+    <div class="right-panel__block">
+      <div class="right-panel__label">Conversation info</div>
+      <h3>{{ info.title }}</h3>
+      <ul class="right-panel__meta">
+        <li><span>Participants</span><strong>{{ info.participants.join(', ') }}</strong></li>
+        <li><span>Status</span><strong>{{ info.status }}</strong></li>
+        <li><span>Latest note</span><strong>{{ info.note }}</strong></li>
+      </ul>
+    </div>
+  } @else {
+    <div class="right-panel__block">
+      <div class="right-panel__label">Conversation info</div>
+      <h3>No active channel</h3>
+      <p class="right-panel__empty">The right-panel queue is ready, but there are no tasks yet. Create and open a channel to see its details here.</p>
+    </div>
+  }
+</section>

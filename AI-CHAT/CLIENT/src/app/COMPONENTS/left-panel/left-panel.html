@@ -1,0 +1,37 @@
+<section class="left-panel">
+  <div class="left-panel__search">
+    <input type="text" value="Search channels" aria-label="Search channels" />
+  </div>
+
+  <div class="left-panel__section">
+    <div class="left-panel__section-title">Channels</div>
+
+    @if (channels$ | async; as channels) {
+      @if (channels.length) {
+        @if (activeChannelId$ | async; as activeChannelId) {
+          @for (channel of channels; track channel.id) {
+            <button
+              type="button"
+              class="channel-item"
+              [class.channel-item--active]="channel.id === activeChannelId"
+              (click)="selectChannel(channel.id)"
+            >
+              <div class="channel-item__avatar">{{ channelAvatar(channel) }}</div>
+              <div class="channel-item__content">
+                <div class="channel-item__head">
+                  <strong>{{ channel.name }}</strong>
+                  <span>{{ channelTime(channel) }}</span>
+                </div>
+                <p>{{ channel.lastMessage }}</p>
+              </div>
+            </button>
+          }
+        }
+      } @else {
+        <div class="left-panel__empty">
+          Create a channel below and it will appear here through the left-panel queue.
+        </div>
+      }
+    }
+  </div>
+</section>

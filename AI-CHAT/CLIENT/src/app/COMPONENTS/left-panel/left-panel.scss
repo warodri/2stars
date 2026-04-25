@@ -1,0 +1,109 @@
+.left-panel {
+  display: grid;
+  gap: 20px;
+  min-height: 100%;
+  padding: 18px 16px 20px;
+}
+
+.left-panel__search input {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid #dbe3ef;
+  border-radius: 14px;
+  background: #f8fbff;
+  color: #1e293b;
+  font-size: 0.94rem;
+  outline: none;
+}
+
+.left-panel__section {
+  display: grid;
+  gap: 10px;
+}
+
+.left-panel__empty {
+  padding: 14px;
+  border-radius: 14px;
+  background: #f8fbff;
+  color: #64748b;
+  font-size: 0.88rem;
+  line-height: 1.45;
+}
+
+.left-panel__section-title {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #94a3b8;
+  padding: 0 6px;
+}
+
+.channel-item {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 42px minmax(0, 1fr);
+  gap: 12px;
+  padding: 12px;
+  border: 1px solid transparent;
+  border-radius: 16px;
+  background: transparent;
+  text-align: left;
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+.channel-item:hover,
+.channel-item--active {
+  background: #f5f8fd;
+  border-color: #dbe4f0;
+  transform: translateY(-1px);
+}
+
+.channel-item__avatar {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 14px;
+  background: linear-gradient(180deg, #7c8cff 0%, #5865f2 100%);
+  color: #fff;
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.channel-item__avatar--soft {
+  background: linear-gradient(180deg, #60a5fa 0%, #2563eb 100%);
+}
+
+.channel-item__avatar--muted {
+  background: linear-gradient(180deg, #94a3b8 0%, #64748b 100%);
+}
+
+.channel-item__content {
+  min-width: 0;
+}
+
+.channel-item__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.channel-item__head strong {
+  font-size: 0.94rem;
+  color: #0f172a;
+}
+
+.channel-item__head span {
+  font-size: 0.75rem;
+  color: #94a3b8;
+}
+
+.channel-item__content p {
+  margin: 4px 0 0;
+  color: #64748b;
+  font-size: 0.84rem;
+  line-height: 1.35;
+}

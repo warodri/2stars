@@ -1,0 +1,41 @@
+<section class="typing-panel">
+  <div class="typing-panel__channel-creator">
+    <input
+      type="text"
+      placeholder="Channel name"
+      [value]="channelName"
+      (input)="channelName = $any($event.target).value"
+      aria-label="Channel name"
+    />
+    <input
+      type="text"
+      placeholder="Members comma separated"
+      [value]="members"
+      (input)="members = $any($event.target).value"
+      aria-label="Channel members"
+    />
+    <button type="button" (click)="createChannel()">Create channel</button>
+  </div>
+
+  <div class="typing-panel__message-row">
+    <div class="typing-panel__actions">
+      <button type="button">+</button>
+      <button type="button">😊</button>
+    </div>
+
+    <label class="typing-panel__field">
+      <textarea
+        rows="1"
+        aria-label="Type a message"
+        placeholder="Type a message..."
+        [value]="message"
+        (input)="message = $any($event.target).value"
+      ></textarea>
+    </label>
+
+    <div class="typing-panel__actions typing-panel__actions--right">
+      <button type="button">Summarise</button>
+      <button type="button" class="typing-panel__send" (click)="sendMessage()">Send</button>
+    </div>
+  </div>
+</section>
