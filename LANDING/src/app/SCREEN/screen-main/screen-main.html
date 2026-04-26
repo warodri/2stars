@@ -1,1 +1,598 @@
-<p>screen-main works!</p>
+<!-- =====================================================================
+     STICKY NAV
+===================================================================== -->
+<nav class="site-nav">
+    <a href="#" class="nav-logo">
+        <span class="logo-mark">2<sup>★</sup></span>stars
+    </a>
+    <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#products">Products</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+        <li><a href="#support">Support</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="#contact" class="primary-action nav-cta">Get Started</a>
+</nav>
+
+<!-- =====================================================================
+     MAIN
+===================================================================== -->
+<main class="landing-page">
+
+    <!-- HERO -->
+    <section class="hero-section reveal" id="hero">
+        <div class="hero-blob" aria-hidden="true"></div>
+
+        <div class="hero-copy">
+            <!-- <span class="eyebrow">2stars</span> -->
+            <h1>
+                <span class="accent">AI</span> that executes
+                <span class="accent">business operations</span>
+            </h1>
+            <p class="hero-text">
+                Build, deploy, and scale AI-driven workflows across chat, security, and real-world experiences. No per-message costs. No complex setup. Just results.
+            </p>
+
+            <div class="hero-actions">
+                <a href="#contact" class="primary-action">Get Started</a>
+                <a href="#contact" class="secondary-action">Book a Demo</a>
+            </div>
+        </div>
+
+        <div class="hero-visual">
+            <div class="hero-card">
+                <div class="hero-image-frame" [class.placeholder]="!heroImageUrl">
+                    <img *ngIf="heroImageUrl" [src]="heroImageUrl" alt="2stars.io studio hero visual">
+                    <div *ngIf="!heroImageUrl" class="hero-placeholder">
+                        <div class="hero-placeholder-icon" aria-hidden="true">✦</div>
+                        <span>Hero image ready</span>
+                        <p>Drop your final visual into <code>heroImageUrl</code> in this component.</p>
+                    </div>
+                </div>
+
+                <div class="hero-metrics">
+                    <div>
+                        <strong>AI Platform</strong>
+                        <span>Automation, chat, security, and recognition - ready to deploy across your business.</span>
+                    </div>
+                    <div>
+                        <strong>AI Development</strong>
+                        <span>Tailored solutions built for your business. Designed, developed, and delivered end-to-end.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="about-section reveal" id="about">
+        <div class="about-layout">
+            <div class="about-copy">
+                <div class="section-heading about-heading">
+                    <span class="eyebrow">What we do</span>
+                    <h2>An AI Studio built for business execution</h2>
+                    <p>2stars builds AI products designed to do more than respond. They act.</p>
+                    <p>From automating customer conversations to securing accounts and enabling real-world recognition, our platform helps businesses move faster, reduce operational cost, and deliver better experiences.</p>
+                    <p>We focus on what matters: real outcomes, fast deployment, and systems that scale.</p>
+                </div>
+            </div>
+
+            <div class="about-visual">
+                <div class="about-image-frame">
+                    <img src="/second-image.png" alt="2stars business execution visual">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FEATURE STRIP -->
+    <section class="features-strip reveal">
+        <div class="feature-item">
+            <div class="feature-icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+                </svg>
+            </div>
+            <strong>AI-Powered Solutions</strong>
+            <span>Built on the latest models</span>
+        </div>
+        <div class="feature-divider" aria-hidden="true"></div>
+        <div class="feature-item">
+            <div class="feature-icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                    <circle cx="12" cy="12" r="10" />
+                    <path d="M12 6v6l4 2" />
+                </svg>
+            </div>
+            <strong>End-to-End Development</strong>
+            <span>From idea to production</span>
+        </div>
+        <div class="feature-divider" aria-hidden="true"></div>
+        <div class="feature-item">
+            <div class="feature-icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                    <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
+                </svg>
+            </div>
+            <strong>Scalable &amp; Reliable</strong>
+            <span>Built to grow with your team</span>
+        </div>
+        <div class="feature-divider" aria-hidden="true"></div>
+        <div class="feature-item">
+            <div class="feature-icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                    <circle cx="9" cy="7" r="4" />
+                    <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" />
+                </svg>
+            </div>
+            <strong>Custom for Your Business</strong>
+            <span>Tailored to your exact workflow</span>
+        </div>
+    </section>
+
+    <!-- AI CONCIERGE -->
+    <section class="ai-section reveal" id="ai-concierge">
+        <div class="section-heading">
+            <span class="eyebrow">AI concierge</span>
+            <h2>Ask our AI about the company, products, pricing, or how to contact us.</h2>
+            <p>Start with a suggested question or type your own prompt to guide the conversation.</p>
+        </div>
+
+        <div class="ai-panel">
+            <div class="prompt-composer">
+                <div class="chat-response-area" id="chatResponseArea">
+                    <div class="chat-bubble assistant-bubble">
+                        <span class="bubble-label">2stars AI</span>
+                        <p>Hello! I'm the 2stars.io AI concierge. Ask me anything about our studio, products, or how we
+                            can help your team. Use one of the suggested prompts or write your own.</p>
+                    </div>
+                </div>
+                <label for="aiPrompt" class="visually-hidden">Prompt</label>
+                <div class="chat-input-row">
+                    <textarea id="aiPrompt" name="aiPrompt" rows="2" [(ngModel)]="aiPrompt"
+                        placeholder="Ask about our products, services, pricing, or how to reach us…"></textarea>
+                    <button type="button" class="primary-action send-btn" aria-label="Send">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2.2">
+                            <line x1="22" y1="2" x2="11" y2="13" />
+                            <polygon points="22 2 15 22 11 13 2 9 22 2" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <div class="prompt-suggestions">
+                <span class="suggestions-title">Suggested prompts</span>
+                <button *ngFor="let prompt of suggestedPrompts" type="button" class="prompt-chip"
+                    (click)="useSuggestedPrompt(prompt)">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10" />
+                        <path d="M12 8v4M12 16h.01" />
+                    </svg>
+                    {{ prompt }}
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRODUCTS -->
+    <section class="products-section reveal" id="products">
+        <div class="section-heading compact-heading">
+            <h3>Our Products</h3>
+            <a href="#contact" class="text-link">Need a custom stack instead? →</a>
+        </div>
+
+        <div class="product-grid">
+            <article *ngFor="let product of products; let i = index" class="product-card" [attr.data-index]="i">
+                <div class="product-accent-bar"></div>
+                <h4>{{ product.name }}</h4>
+                <p class="product-tagline">{{ product.tagline }}</p>
+                <p>{{ product.description }}</p>
+                <div class="product-footer text-center">
+                    <strong>{{ product.price }}</strong>
+                    <a href="#pricing" class="secondary-action small-action">View More</a>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="how-section reveal" id="how">
+        <div class="section-heading center-heading">
+            <span class="eyebrow dark-eyebrow">How we work</span>
+            <h2>From idea to production in minutes</h2>
+        </div>
+
+        <div class="how-grid">
+            <article class="how-step">
+                <span class="how-step-number">1</span>
+                <h4>Define your use case</h4>
+                <p>Describe what you want using simple prompts. No technical knowledge required.</p>
+            </article>
+            <article class="how-step">
+                <span class="how-step-number">2</span>
+                <h4>Connect your systems</h4>
+                <p>Integrate messaging providers, data sources, and tools in minutes.</p>
+            </article>
+            <article class="how-step">
+                <span class="how-step-number">3</span>
+                <h4>Go live instantly</h4>
+                <p>Deploy AI workflows that handle real business operations from day one.</p>
+            </article>
+        </div>
+    </section>
+
+    <!-- FEATURES -->
+    <section class="business-features-section reveal" id="features">
+        <div class="section-heading center-heading">
+            <span class="eyebrow">Our Mindset</span>
+            <h2>Built for real business impact</h2>
+        </div>
+
+        <div class="business-features-grid">
+            <article class="business-feature-card">
+                <h6>AI trained on your data</h6>
+                <p>We make AI understands your products, services, and customers.</p>
+            </article>
+            <article class="business-feature-card">
+                <h6>End-to-end automation</h6>
+                <p>From conversation to execution across sales, support, and operations.</p>
+            </article>
+            <article class="business-feature-card">
+                <h6>Smart engagement</h6>
+                <p>AI selects the best time and method to interact with users.</p>
+            </article>
+            <article class="business-feature-card">
+                <h6>Visual intelligence</h6>
+                <p>Generate product previews in real environments or on real users.</p>
+            </article>
+            <article class="business-feature-card">
+                <h6>Payment automation</h6>
+                <p>Follow up and guide users through your payment completion flows.</p>
+            </article>
+            <article class="business-feature-card">
+                <h6>Cross-channel</h6>
+                <p>WhatsApp, RCS, Telegram, web and more.</p>
+            </article>
+        </div>
+    </section>
+
+    <!-- VALUE -->
+    <section class="value-section reveal" id="value">
+        <div class="section-heading center-heading">
+            <span class="eyebrow">Why 2stars</span>
+            <h2>Why companies choose 2stars</h2>
+        </div>
+
+        <div class="value-grid">
+            <article class="value-card">
+                <h6>No per-message pricing</h6>
+                <p>Predictable monthly cost instead of scaling fees.</p>
+            </article>
+            <article class="value-card">
+                <h6>Fast deployment</h6>
+                <p>Go live in minutes, not months.</p>
+            </article>
+            <article class="value-card">
+                <h6>Execution-focused</h6>
+                <p>AI that performs actions, not just conversations.</p>
+            </article>
+            <article class="value-card">
+                <h6>Enterprise-ready</h6>
+                <p>Secure, scalable, and production-ready.</p>
+            </article>
+        </div>
+    </section>
+
+    <!-- PRICING -->
+    <!-- <section class="pricing-section reveal" id="pricing">
+        <div class="section-heading center-heading">
+            <span class="eyebrow">Pricing</span>
+            <h2>Simple pricing. No hidden costs.</h2>
+            <p>Stop paying per message. Start paying for outcomes.</p>
+        </div>
+
+        <div class="pricing-grid">
+            <article class="pricing-card">
+                <h5>Starter</h5>
+                <h3>£99<span>/month</span></h3>
+                <p>Ideal for small teams getting started with AI workflows.</p>
+                <ul>
+                    <li>AI Chat access</li>
+                    <li>Basic flow automation (RelAI)</li>
+                    <li>Up to 2 active workflows</li>
+                    <li>Standard support</li>
+                </ul>
+                <a href="#contact" class="secondary-action wide-action">Get Started</a>
+            </article>
+
+            <article class="pricing-card pricing-card-featured">
+                <span class="pricing-badge">Most Popular</span>
+                <h5>Growth</h5>
+                <h3>£299<span>/month</span></h3>
+                <p>For businesses scaling automation and customer engagement.</p>
+                <ul>
+                    <li>Everything in Starter</li>
+                    <li>Unlimited AI Chat usage</li>
+                    <li>Advanced flows (RelAI)</li>
+                    <li>Vision AI capabilities</li>
+                    <li>Priority support</li>
+                </ul>
+                <a href="#contact" class="primary-action wide-action">Get Started</a>
+            </article>
+
+            <article class="pricing-card">
+                <h5>Enterprise</h5>
+                <h3>Custom</h3>
+                <p>Tailored solutions for large-scale operations and advanced use cases.</p>
+                <ul>
+                    <li>Everything in Growth</li>
+                    <li>VerifAI security SDK</li>
+                    <li>Custom AI model training</li>
+                    <li>Dedicated onboarding</li>
+                    <li>SLA and dedicated support</li>
+                </ul>
+                <a href="#contact" class="secondary-action wide-action">Contact Us</a>
+            </article>
+        </div>
+
+        <div class="pricing-note">
+            <p>Unlike traditional platforms, we do not charge per message, per interaction, or per API call.</p>
+            <strong>One monthly fee. Unlimited usage. Real business outcomes.</strong>
+        </div>
+    </section> -->
+
+    <!-- CONTACT -->
+    <section class="contact-section reveal" id="contact">
+        <div class="contact-card">
+            <div class="section-heading compact-heading">
+                <h3>Contact us</h3>
+                <p>Reach out for custom AI applications, product partnerships, or general questions.</p>
+            </div>
+
+            <div class="contact-grid">
+                <div class="contact-item" [class.contact-item-active]="selectedContactType === 'custom'">
+                    <div class="contact-icon">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                            <polyline points="22,6 12,13 2,6" />
+                        </svg>
+                    </div>
+                    <span>Custom applications</span>
+                    <p>Click here to tell us about any custom development for your business, internal tooling, or AI workflow idea.</p>
+                    <button type="button" class="secondary-action small-action contact-open-btn" (click)="openContactForm('custom')">
+                        Open custom project form
+                    </button>
+                </div>
+
+                <div class="contact-item" [class.contact-item-active]="selectedContactType === 'general'">
+                    <div class="contact-icon">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                            <polyline points="22,6 12,13 2,6" />
+                        </svg>
+                    </div>
+                    <span>General questions</span>
+                    <p>Click here to ask about our studio, products, pricing, partnerships, or anything else you want to know.</p>
+                    <button type="button" class="secondary-action small-action contact-open-btn" (click)="openContactForm('general')">
+                        Open general inquiry form
+                    </button>
+                </div>
+
+                <div class="contact-item" [class.contact-item-active]="selectedContactType === 'scheduling'">
+                    <div class="contact-icon">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <circle cx="12" cy="12" r="10" />
+                            <path
+                                d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+                        </svg>
+                    </div>
+                    <span>Scheduling</span>
+                    <p>Click here if you want to arrange a demo, intro call, product walkthrough, or working session with the team.</p>
+                    <button type="button" class="secondary-action small-action contact-open-btn" (click)="openContactForm('scheduling')">
+                        Open scheduling form
+                    </button>
+                </div>
+            </div>
+
+            <form *ngIf="selectedContactOption" class="contact-form-panel" (ngSubmit)="submitContactRequest()">
+                <div class="contact-form-header">
+                    <span class="eyebrow">Contact form</span>
+                    <h4>{{ selectedContactOption.label }}</h4>
+                    <p>{{ selectedContactOption.title }}</p>
+                </div>
+
+                <div class="form-grid">
+                    <label>
+                        <span>Your name</span>
+                        <input type="text" name="contactName" placeholder="Your name">
+                    </label>
+
+                    <label>
+                        <span>Your email</span>
+                        <input type="email" name="contactEmail" placeholder="you@company.com">
+                    </label>
+
+                    <label class="full-width">
+                        <span>Company</span>
+                        <input type="text" name="contactCompany" placeholder="Your company or team">
+                    </label>
+
+                    <label class="full-width">
+                        <span>What would you like to discuss?</span>
+                        <textarea name="contactMessage" rows="5" placeholder="Share context, goals, timelines, or the type of conversation you want to start."></textarea>
+                    </label>
+                </div>
+
+                <div class="support-actions">
+                    <button type="submit" class="primary-action">
+                        {{ selectedContactOption.cta }}
+                    </button>
+                    <p *ngIf="contactRequestSent" class="support-confirmation">
+                        ✓ Inquiry draft created for <strong>{{ selectedContactOption.label }}</strong>. You can connect this form to your Node.js submission flow later.
+                    </p>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- SUPPORT -->
+    <section class="support-section reveal" id="support">
+        <div class="support-layout">
+            <div class="support-intro">
+                <span class="support-kicker">Need help fast?</span>
+                <h3>Support that stands out when your team needs it most.</h3>
+                <p>
+                    Pick the product, describe the issue,
+                    and start the ticket in a few seconds.
+                </p>
+
+                <div class="support-highlights">
+                    <div class="support-highlight-card">
+                        <strong>Priority routing</strong>
+                        <span>Direct requests to the right product queue.</span>
+                    </div>
+                    <div class="support-highlight-card">
+                        <strong>Clear ticket intake</strong>
+                        <span>Capture urgency, context, and the exact issue fast.</span>
+                    </div>
+                    <div class="support-highlight-card">
+                        <strong>Built for product teams</strong>
+                        <span>Useful for bugs, configuration help, and rollout questions.</span>
+                    </div>
+                </div>
+                
+            </div>
+
+            <form class="support-form" (ngSubmit)="submitSupportTicket()">
+                <div class="support-form-header">
+                    <span class="eyebrow">Open a ticket</span>
+                    <p>Select a product and start a support request.</p>
+                </div>
+
+                <div class="form-grid">
+                    <label>
+                        <span>Product</span>
+                        <select name="supportProduct" [(ngModel)]="selectedSupportProduct">
+                            <option *ngFor="let product of products" [value]="product.name">{{ product.name }}</option>
+                        </select>
+                    </label>
+
+                    <label>
+                        <span>Your email</span>
+                        <input type="email" name="supportEmail" placeholder="you@company.com">
+                    </label>
+
+                    <label class="full-width">
+                        <span>Subject</span>
+                        <input type="text" name="supportSubject" placeholder="Short summary of the issue">
+                    </label>
+
+                    <label class="full-width">
+                        <span>What do you need help with?</span>
+                        <textarea name="supportMessage" rows="5"
+                            placeholder="Describe the issue, urgency, and any useful context."></textarea>
+                    </label>
+                </div>
+
+                <div class="support-actions">
+                    <button type="submit" class="primary-action">Create support ticket</button>
+                    <p *ngIf="supportRequestSent" class="support-confirmation">
+                        ✓ Ticket draft created for <strong>{{ selectedSupportProduct }}</strong>. You can now connect this
+                        form to your backend or email flow.
+                    </p>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section class="final-cta-section reveal" id="cta">
+        <div class="section-heading center-heading">
+            <span class="eyebrow dark-eyebrow">Start Now</span>
+            <h2>Start building AI that actually works</h2>
+            <p>Deploy intelligent systems that automate your business, improve customer experience, and reduce operational overhead.</p>
+        </div>
+
+        <div class="final-cta-actions">
+            <a href="#contact" class="primary-action">Get Started</a>
+            <a href="#contact" class="secondary-action light-outline">Talk to Us</a>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+        <div class="container-xl">
+            <div class="row g-5 pb-5">
+                <div class="col-lg-4">
+                    <div class="footer-brand mb-3">
+                        <span class="brand-2">2</span><span class="brand-stars">stars</span>
+                        <span class="brand-tag-footer d-block">AI STUDIO</span>
+                    </div>
+                    <p class="footer-desc">We build intelligent products for the AI era. Based in London, working globally.</p>
+                    <div class="footer-socials mt-4">
+                        <a href="#" class="social-link" aria-label="X">
+                            <i class="bi bi-twitter-x"></i>
+                        </a>
+                        <a href="#" class="social-link" aria-label="LinkedIn">
+                            <i class="bi bi-linkedin"></i>
+                        </a>
+                        <a href="#" class="social-link" aria-label="GitHub">
+                            <i class="bi bi-github"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-lg-2 col-6">
+                    <h6 class="footer-heading">Products</h6>
+                    <ul class="footer-links footer-links-list">
+                        <li *ngFor="let product of products">
+                            <a href="#products">{{ product.name }}</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-2 col-6">
+                    <h6 class="footer-heading">Company</h6>
+                    <ul class="footer-links footer-links-list">
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Press</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-2 col-6">
+                    <h6 class="footer-heading">Legal</h6>
+                    <ul class="footer-links footer-links-list">
+                        <li><a href="#">Privacy</a></li>
+                        <li><a href="#">Terms</a></li>
+                        <li><a href="#">Cookies</a></li>
+                        <li><a href="#">Security</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-2 col-6">
+                    <h6 class="footer-heading">Support</h6>
+                    <ul class="footer-links footer-links-list">
+                        <li><a href="#">Documentation</a></li>
+                        <li><a href="#">Status</a></li>
+                        <li><a href="#support">Open ticket</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <span>© 2025 2stars.io — All rights reserved.</span>
+                <span class="footer-love">Made for the AI era</span>
+            </div>
+        </div>
+    </footer>
+
+</main>
