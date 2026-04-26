@@ -1,0 +1,72 @@
+<footer class="site-footer">
+    <div class="container-xl">
+        <div class="row g-5 pb-5">
+            <div class="col-lg-4">
+                <div class="footer-brand mb-3">
+                    <a href="" class="footer-brand-link" (click)="scrollToTop($event)">
+                        <span class="brand-2">2</span><span class="brand-stars">stars</span>
+                    </a>
+                    <span class="brand-tag-footer d-block">AI STUDIO</span>
+                </div>
+                <p class="footer-desc">We build intelligent products for the AI era. Based in London, working globally.</p>
+                <div class="footer-socials mt-4">
+                    <a href="#" class="social-link" aria-label="X">
+                        <i class="bi bi-twitter-x"></i>
+                    </a>
+                    <a href="#" class="social-link" aria-label="LinkedIn">
+                        <i class="bi bi-linkedin"></i>
+                    </a>
+                    <a href="#" class="social-link" aria-label="GitHub">
+                        <i class="bi bi-github"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-lg-2 col-6">
+                <h6 class="footer-heading">Products</h6>
+                <ul class="footer-links footer-links-list">
+                    @for (product of products; track product.id) {
+                        <li>
+                            <a [routerLink]="product.route">{{ product.name }}</a>
+                        </li>
+                    }
+                </ul>
+            </div>
+
+            <div class="col-lg-2 col-6">
+                <h6 class="footer-heading">Company</h6>
+                <ul class="footer-links footer-links-list">
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Press</a></li>
+                </ul>
+            </div>
+
+            <div class="col-lg-2 col-6">
+                <h6 class="footer-heading">Legal</h6>
+                <ul class="footer-links footer-links-list">
+                    <li><a href="#">Privacy</a></li>
+                    <li><a href="#">Terms</a></li>
+                    <li><a href="#">Cookies</a></li>
+                    <li><a href="#">Security</a></li>
+                </ul>
+            </div>
+
+            <div class="col-lg-2 col-6">
+                <h6 class="footer-heading">Support</h6>
+                <ul class="footer-links footer-links-list">
+                    <li><a href="#">Documentation</a></li>
+                    <li><a href="#">Status</a></li>
+                    <li><a href="" (click)="scrollToSection('support', $event)">Open ticket</a></li>
+                    <li><a href="" (click)="scrollToSection('contact', $event)">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <span>© 2025 2stars.io — All rights reserved.</span>
+            <span class="footer-love">Made for the AI era</span>
+        </div>
+    </div>
+</footer>

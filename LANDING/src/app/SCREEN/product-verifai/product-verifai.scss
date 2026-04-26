@@ -1,0 +1,391 @@
+.product-page {
+  background:
+    radial-gradient(circle at top left, rgba(167, 209, 245, 0.32), transparent 26%),
+    linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
+}
+
+.product-page-shell {
+  background: #ffffff;
+}
+
+.verifai-hero,
+.verifai-section,
+.verifai-final-cta {
+  margin-top: 0;
+  margin-bottom: 28px;
+}
+
+.verifai-hero-grid,
+.verifai-solution-layout {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+  align-items: start;
+}
+
+.verifai-solution-copy {
+  display: grid;
+  gap: 20px;
+}
+
+.verifai-solution-visual {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  margin-top: -100px;
+}
+
+.verifai-solution-visual img {
+  display: block;
+  width: min(100%, 320px);
+  height: auto;
+}
+
+.verifai-copy h1 {
+  margin-top: 16px;
+}
+
+.verifai-hero-panel,
+.verifai-info-card,
+.verifai-feature-card,
+.verifai-step-card,
+.verifai-use-card {
+  padding: 24px;
+  border: 1px solid rgba(167, 209, 245, 0.34);
+  border-radius: 22px;
+  background: linear-gradient(180deg, #ffffff 0%, #f7fbff 100%);
+  box-shadow: 0 16px 36px rgba(18, 53, 91, 0.08);
+  transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+}
+
+.verifai-hero-panel:hover,
+.verifai-info-card:hover,
+.verifai-feature-card:hover,
+.verifai-step-card:hover,
+.verifai-use-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 22px 42px rgba(18, 53, 91, 0.12);
+  border-color: rgba(86, 151, 212, 0.42);
+}
+
+.verifai-hero-panel {
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.verifai-hero-panel:hover {
+  transform: none;
+  box-shadow: none;
+  border-color: transparent;
+}
+
+.verifai-hero-panel h3,
+.verifai-info-card h3,
+.verifai-feature-card h3,
+.verifai-step-card h3,
+.verifai-use-card h3 {
+  font-size: 1.05rem;
+}
+
+.verifai-hero-image-frame {
+  margin-bottom: 18px;
+  max-width: 250px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.verifai-hero-image-frame img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+@media (max-width: 720px) {
+  .verifai-hero-image-frame {
+    max-width: 100%;
+  }
+}
+
+.verifai-hero-panel p,
+.verifai-info-card p,
+.verifai-feature-card p,
+.verifai-step-card p,
+.verifai-use-card p {
+  margin-top: 10px;
+  color: #64748b;
+  line-height: 1.7;
+}
+
+.verifai-hero-actions {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-top: 28px;
+}
+
+.verifai-card-grid {
+  display: grid;
+  gap: 20px;
+}
+
+.verifai-card-grid-three {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.verifai-card-grid-five {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+
+.verifai-quotes-intro {
+  margin: -8px 0 24px;
+  color: #64748b;
+  line-height: 1.7;
+}
+
+.verifai-quotes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.verifai-quote-card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+  border: 1px solid #eef2f7;
+}
+
+.verifai-quote-source {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.verifai-quote-source img {
+  display: block;
+  width: auto;
+  height: 40px;
+  object-fit: contain;
+}
+
+.verifai-quote-card p {
+  font-size: 0.95rem;
+  color: #333;
+  margin-bottom: 0;
+  line-height: 1.5;
+}
+
+.verifai-quote-card span {
+  font-size: 0.82rem;
+  color: #475569;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.verifai-steps-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.verifai-step-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #7eb6e6, #3c7db8);
+  color: #ffffff;
+  font-weight: 700;
+}
+
+.verifai-table-intro {
+  margin: -8px 0 24px;
+  color: #64748b;
+  line-height: 1.7;
+  max-width: 100%!important;
+}
+
+.verifai-battle-section {
+  background: linear-gradient(135deg, #132235 0%, #0f172a 100%);
+  border-color: rgba(167, 209, 245, 0.14);
+}
+
+.verifai-battle-section .section-heading h2,
+.verifai-battle-section .verifai-table-intro {
+  color: #ffffff;
+}
+
+.verifai-battle-section .eyebrow {
+  background: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.verifai-battle-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+  margin-top: 30px;
+}
+
+.verifai-battle-card {
+  border-radius: 18px;
+  padding: 24px;
+  background: rgba(255, 255, 255, 0.04);
+  box-shadow: 0 18px 36px rgba(0, 0, 0, 0.18);
+  backdrop-filter: blur(6px);
+  transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+}
+.verifai-battle-card li {
+  font-size: 20px!important;
+}
+
+.verifai-battle-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 24px 42px rgba(0, 0, 0, 0.22);
+}
+
+.verifai-battle-card h4 {
+  margin: 0 0 16px;
+  font-size: 1.2rem;
+}
+
+.verifai-battle-card ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.verifai-battle-card li {
+  margin-bottom: 10px;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.negative-card {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: rgba(226, 232, 240, 0.72);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(148, 163, 184, 0.06));
+}
+
+.negative-card h4 {
+  color: #ffffff;
+}
+
+.positive-card {
+  border: 1px solid rgba(96, 165, 250, 0.3);
+  background: linear-gradient(180deg, rgba(59, 130, 246, 0.28), rgba(30, 64, 175, 0.16));
+  color: #dbeafe;
+}
+
+.positive-card h4 {
+  color: #ffffff;
+}
+
+.positive-card li,
+.negative-card li {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-top: 10px;
+}
+
+.positive-card li:first-child,
+.negative-card li:first-child {
+  border-top: 0;
+  padding-top: 0;
+}
+
+.verifai-attack-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+}
+
+.verifai-attack-card {
+  background: #fff;
+  border-radius: 18px;
+  padding: 24px;
+  border: 1px solid #eef2f7;
+}
+
+.verifai-attack-card ol {
+  padding-left: 18px;
+}
+
+.verifai-attack-card li {
+  margin-bottom: 8px;
+  font-size: 0.95rem;
+}
+
+.verifai-attack-card.highlight {
+  border: 1px solid rgba(59,130,246,0.2);
+  background: rgba(59,130,246,0.05);
+}
+
+.attack-result {
+  margin-top: 16px;
+  padding: 10px;
+  border-radius: 10px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.attack-result.negative {
+  background: #fef2f2;
+  color: #dc2626;
+}
+
+.attack-result.positive {
+  background: #eff6ff;
+  color: #2563eb;
+}
+
+.verifai-final-cta {
+  text-align: center;
+}
+
+.verifai-cta-actions {
+  justify-content: center;
+}
+
+@media (max-width: 1100px) {
+  .verifai-card-grid-five {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .verifai-steps-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+}
+
+@media (max-width: 900px) {
+  .verifai-hero-grid,
+  .verifai-solution-layout,
+  .verifai-card-grid-three,
+  .verifai-card-grid-five {
+    grid-template-columns: 1fr;
+  }
+
+  .verifai-solution-visual {
+    justify-content: flex-start;
+    margin-top: 0;
+  }
+}
+
+@media (max-width: 720px) {
+  .verifai-hero-actions {
+    flex-direction: column;
+  }
+
+  .verifai-steps-grid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -2,17 +2,17 @@
      STICKY NAV
 ===================================================================== -->
 <nav class="site-nav">
-    <a href="#" class="nav-logo">
+    <a href="" class="nav-logo" (click)="scrollToTop($event)">
         <span class="logo-mark">2<sup>★</sup></span>stars
     </a>
     <ul class="nav-links">
-        <li><a href="#about">About</a></li>
-        <li><a href="#products">Products</a></li>
-        <li><a href="#pricing">Pricing</a></li>
-        <li><a href="#support">Support</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li><a href="" (click)="scrollToSection('about', $event)">About</a></li>
+        <li><a href="" (click)="scrollToSection('products', $event)">Products</a></li>
+        <li><a href="" (click)="scrollToSection('pricing', $event)">Pricing</a></li>
+        <li><a href="" (click)="scrollToSection('support', $event)">Support</a></li>
+        <li><a href="" (click)="scrollToSection('contact', $event)">Contact</a></li>
     </ul>
-    <a href="#contact" class="primary-action nav-cta">Get Started</a>
+    <a href="" class="primary-action nav-cta" (click)="scrollToSection('contact', $event)">Get Started</a>
 </nav>
 
 <!-- =====================================================================
@@ -35,20 +35,23 @@
             </p>
 
             <div class="hero-actions">
-                <a href="#contact" class="primary-action">Get Started</a>
-                <a href="#contact" class="secondary-action">Book a Demo</a>
+                <a href="" class="primary-action" (click)="scrollToSection('contact', $event)">Get Started</a>
+                <a href="" class="secondary-action" (click)="scrollToSection('contact', $event)">Book a Demo</a>
             </div>
         </div>
 
         <div class="hero-visual">
             <div class="hero-card">
                 <div class="hero-image-frame" [class.placeholder]="!heroImageUrl">
-                    <img *ngIf="heroImageUrl" [src]="heroImageUrl" alt="2stars.io studio hero visual">
-                    <div *ngIf="!heroImageUrl" class="hero-placeholder">
-                        <div class="hero-placeholder-icon" aria-hidden="true">✦</div>
-                        <span>Hero image ready</span>
-                        <p>Drop your final visual into <code>heroImageUrl</code> in this component.</p>
-                    </div>
+                    @if (heroImageUrl) {
+                        <img [src]="heroImageUrl" alt="2stars.io studio hero visual">
+                    } @else {
+                        <div class="hero-placeholder">
+                            <div class="hero-placeholder-icon" aria-hidden="true">✦</div>
+                            <span>Hero image ready</span>
+                            <p>Drop your final visual into <code>heroImageUrl</code> in this component.</p>
+                        </div>
+                    }
                 </div>
 
                 <div class="hero-metrics">
@@ -165,14 +168,15 @@
 
             <div class="prompt-suggestions">
                 <span class="suggestions-title">Suggested prompts</span>
-                <button *ngFor="let prompt of suggestedPrompts" type="button" class="prompt-chip"
-                    (click)="useSuggestedPrompt(prompt)">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <circle cx="12" cy="12" r="10" />
-                        <path d="M12 8v4M12 16h.01" />
-                    </svg>
-                    {{ prompt }}
-                </button>
+                @for (prompt of suggestedPrompts; track prompt) {
+                    <button type="button" class="prompt-chip" (click)="useSuggestedPrompt(prompt)">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10" />
+                            <path d="M12 8v4M12 16h.01" />
+                        </svg>
+                        {{ prompt }}
+                    </button>
+                }
             </div>
         </div>
     </section>
@@ -181,20 +185,22 @@
     <section class="products-section reveal" id="products">
         <div class="section-heading compact-heading">
             <h3>Our Products</h3>
-            <a href="#contact" class="text-link">Need a custom stack instead? →</a>
+            <a href="" class="text-link" (click)="scrollToSection('contact', $event)">Need a custom stack instead? →</a>
         </div>
 
         <div class="product-grid">
-            <article *ngFor="let product of products; let i = index" class="product-card" [attr.data-index]="i">
-                <div class="product-accent-bar"></div>
-                <h4>{{ product.name }}</h4>
-                <p class="product-tagline">{{ product.tagline }}</p>
-                <p>{{ product.description }}</p>
-                <div class="product-footer text-center">
-                    <strong>{{ product.price }}</strong>
-                    <a href="#pricing" class="secondary-action small-action">View More</a>
-                </div>
-            </article>
+            @for (product of products; track product.id; let i = $index) {
+                <article class="product-card" [attr.data-index]="i">
+                    <div class="product-accent-bar"></div>
+                    <h4>{{ product.name }}</h4>
+                    <p class="product-tagline">{{ product.tagline }}</p>
+                    <p>{{ product.description }}</p>
+                    <div class="product-footer text-center">
+                        <strong>{{ product.price }}</strong>
+                        <a [routerLink]="product.route" class="secondary-action small-action">View More</a>
+                    </div>
+                </article>
+            }
         </div>
     </section>
 
@@ -286,64 +292,6 @@
         </div>
     </section>
 
-    <!-- PRICING -->
-    <!-- <section class="pricing-section reveal" id="pricing">
-        <div class="section-heading center-heading">
-            <span class="eyebrow">Pricing</span>
-            <h2>Simple pricing. No hidden costs.</h2>
-            <p>Stop paying per message. Start paying for outcomes.</p>
-        </div>
-
-        <div class="pricing-grid">
-            <article class="pricing-card">
-                <h5>Starter</h5>
-                <h3>£99<span>/month</span></h3>
-                <p>Ideal for small teams getting started with AI workflows.</p>
-                <ul>
-                    <li>AI Chat access</li>
-                    <li>Basic flow automation (RelAI)</li>
-                    <li>Up to 2 active workflows</li>
-                    <li>Standard support</li>
-                </ul>
-                <a href="#contact" class="secondary-action wide-action">Get Started</a>
-            </article>
-
-            <article class="pricing-card pricing-card-featured">
-                <span class="pricing-badge">Most Popular</span>
-                <h5>Growth</h5>
-                <h3>£299<span>/month</span></h3>
-                <p>For businesses scaling automation and customer engagement.</p>
-                <ul>
-                    <li>Everything in Starter</li>
-                    <li>Unlimited AI Chat usage</li>
-                    <li>Advanced flows (RelAI)</li>
-                    <li>Vision AI capabilities</li>
-                    <li>Priority support</li>
-                </ul>
-                <a href="#contact" class="primary-action wide-action">Get Started</a>
-            </article>
-
-            <article class="pricing-card">
-                <h5>Enterprise</h5>
-                <h3>Custom</h3>
-                <p>Tailored solutions for large-scale operations and advanced use cases.</p>
-                <ul>
-                    <li>Everything in Growth</li>
-                    <li>VerifAI security SDK</li>
-                    <li>Custom AI model training</li>
-                    <li>Dedicated onboarding</li>
-                    <li>SLA and dedicated support</li>
-                </ul>
-                <a href="#contact" class="secondary-action wide-action">Contact Us</a>
-            </article>
-        </div>
-
-        <div class="pricing-note">
-            <p>Unlike traditional platforms, we do not charge per message, per interaction, or per API call.</p>
-            <strong>One monthly fee. Unlimited usage. Real business outcomes.</strong>
-        </div>
-    </section> -->
-
     <!-- CONTACT -->
     <section class="contact-section reveal" id="contact">
         <div class="contact-card">
@@ -400,44 +348,48 @@
                 </div>
             </div>
 
-            <form *ngIf="selectedContactOption" class="contact-form-panel" (ngSubmit)="submitContactRequest()">
-                <div class="contact-form-header">
-                    <span class="eyebrow">Contact form</span>
-                    <h4>{{ selectedContactOption.label }}</h4>
-                    <p>{{ selectedContactOption.title }}</p>
-                </div>
+            @if (selectedContactOption) {
+                <form class="contact-form-panel" (ngSubmit)="submitContactRequest()">
+                    <div class="contact-form-header">
+                        <span class="eyebrow">Contact form</span>
+                        <h4>{{ selectedContactOption.label }}</h4>
+                        <p>{{ selectedContactOption.title }}</p>
+                    </div>
 
-                <div class="form-grid">
-                    <label>
-                        <span>Your name</span>
-                        <input type="text" name="contactName" placeholder="Your name">
-                    </label>
+                    <div class="form-grid">
+                        <label>
+                            <span>Your name</span>
+                            <input type="text" name="contactName" placeholder="Your name">
+                        </label>
 
-                    <label>
-                        <span>Your email</span>
-                        <input type="email" name="contactEmail" placeholder="you@company.com">
-                    </label>
+                        <label>
+                            <span>Your email</span>
+                            <input type="email" name="contactEmail" placeholder="you@company.com">
+                        </label>
 
-                    <label class="full-width">
-                        <span>Company</span>
-                        <input type="text" name="contactCompany" placeholder="Your company or team">
-                    </label>
+                        <label class="full-width">
+                            <span>Company</span>
+                            <input type="text" name="contactCompany" placeholder="Your company or team">
+                        </label>
 
-                    <label class="full-width">
-                        <span>What would you like to discuss?</span>
-                        <textarea name="contactMessage" rows="5" placeholder="Share context, goals, timelines, or the type of conversation you want to start."></textarea>
-                    </label>
-                </div>
+                        <label class="full-width">
+                            <span>What would you like to discuss?</span>
+                            <textarea name="contactMessage" rows="5" placeholder="Share context, goals, timelines, or the type of conversation you want to start."></textarea>
+                        </label>
+                    </div>
 
-                <div class="support-actions">
-                    <button type="submit" class="primary-action">
-                        {{ selectedContactOption.cta }}
-                    </button>
-                    <p *ngIf="contactRequestSent" class="support-confirmation">
-                        ✓ Inquiry draft created for <strong>{{ selectedContactOption.label }}</strong>. You can connect this form to your Node.js submission flow later.
-                    </p>
-                </div>
-            </form>
+                    <div class="support-actions">
+                        <button type="submit" class="primary-action">
+                            {{ selectedContactOption.cta }}
+                        </button>
+                        @if (contactRequestSent) {
+                            <p class="support-confirmation">
+                                ✓ Inquiry draft created for <strong>{{ selectedContactOption.label }}</strong>. You can connect this form to your Node.js submission flow later.
+                            </p>
+                        }
+                    </div>
+                </form>
+            }
         </div>
     </section>
 
@@ -479,7 +431,9 @@
                     <label>
                         <span>Product</span>
                         <select name="supportProduct" [(ngModel)]="selectedSupportProduct">
-                            <option *ngFor="let product of products" [value]="product.name">{{ product.name }}</option>
+                            @for (product of products; track product.id) {
+                                <option [value]="product.name">{{ product.name }}</option>
+                            }
                         </select>
                     </label>
 
@@ -502,10 +456,12 @@
 
                 <div class="support-actions">
                     <button type="submit" class="primary-action">Create support ticket</button>
-                    <p *ngIf="supportRequestSent" class="support-confirmation">
-                        ✓ Ticket draft created for <strong>{{ selectedSupportProduct }}</strong>. You can now connect this
-                        form to your backend or email flow.
-                    </p>
+                    @if (supportRequestSent) {
+                        <p class="support-confirmation">
+                            ✓ Ticket draft created for <strong>{{ selectedSupportProduct }}</strong>. You can now connect this
+                            form to your backend or email flow.
+                        </p>
+                    }
                 </div>
             </form>
         </div>
@@ -520,79 +476,12 @@
         </div>
 
         <div class="final-cta-actions">
-            <a href="#contact" class="primary-action">Get Started</a>
-            <a href="#contact" class="secondary-action light-outline">Talk to Us</a>
+            <a href="" class="primary-action" (click)="scrollToSection('contact', $event)">Get Started</a>
+            <a href="" class="secondary-action light-outline" (click)="scrollToSection('contact', $event)">Talk to Us</a>
         </div>
     </section>
 
     <!-- FOOTER -->
-    <footer class="site-footer">
-        <div class="container-xl">
-            <div class="row g-5 pb-5">
-                <div class="col-lg-4">
-                    <div class="footer-brand mb-3">
-                        <span class="brand-2">2</span><span class="brand-stars">stars</span>
-                        <span class="brand-tag-footer d-block">AI STUDIO</span>
-                    </div>
-                    <p class="footer-desc">We build intelligent products for the AI era. Based in London, working globally.</p>
-                    <div class="footer-socials mt-4">
-                        <a href="#" class="social-link" aria-label="X">
-                            <i class="bi bi-twitter-x"></i>
-                        </a>
-                        <a href="#" class="social-link" aria-label="LinkedIn">
-                            <i class="bi bi-linkedin"></i>
-                        </a>
-                        <a href="#" class="social-link" aria-label="GitHub">
-                            <i class="bi bi-github"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="col-lg-2 col-6">
-                    <h6 class="footer-heading">Products</h6>
-                    <ul class="footer-links footer-links-list">
-                        <li *ngFor="let product of products">
-                            <a href="#products">{{ product.name }}</a>
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="col-lg-2 col-6">
-                    <h6 class="footer-heading">Company</h6>
-                    <ul class="footer-links footer-links-list">
-                        <li><a href="#">About</a></li>
-                        <li><a href="#">Blog</a></li>
-                        <li><a href="#">Careers</a></li>
-                        <li><a href="#">Press</a></li>
-                    </ul>
-                </div>
-
-                <div class="col-lg-2 col-6">
-                    <h6 class="footer-heading">Legal</h6>
-                    <ul class="footer-links footer-links-list">
-                        <li><a href="#">Privacy</a></li>
-                        <li><a href="#">Terms</a></li>
-                        <li><a href="#">Cookies</a></li>
-                        <li><a href="#">Security</a></li>
-                    </ul>
-                </div>
-
-                <div class="col-lg-2 col-6">
-                    <h6 class="footer-heading">Support</h6>
-                    <ul class="footer-links footer-links-list">
-                        <li><a href="#">Documentation</a></li>
-                        <li><a href="#">Status</a></li>
-                        <li><a href="#support">Open ticket</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="footer-bottom">
-                <span>© 2025 2stars.io — All rights reserved.</span>
-                <span class="footer-love">Made for the AI era</span>
-            </div>
-        </div>
-    </footer>
+    <app-site-footer [products]="products"></app-site-footer>
 
 </main>

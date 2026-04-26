@@ -52,33 +52,59 @@ export class ScreenMain {
             name: 'VerifAI',
             tagline: 'Zero-knowledge device identity verification.',
             description: 'Verify the device, not the user. Prevent SIM swap attacks, phishing, and credential theft with hardware-bound identity and no personal data storage.',
-            price: 'Enterprise pricing'
+            price: 'Enterprise pricing',
+            route: '/products/verifai'
         },
         {
             id: 'relai',
             name: 'RelAI',
             tagline: 'AI-powered messaging flows.',
             description: 'Create full WhatsApp, RCS, or Telegram flows with simple prompts. Connect your provider and go live fast while we help with onboarding and approvals.',
-            price: 'From £99/mo'
+            price: 'From £99/mo',
+            route: '/products/relai'
         },
         {
             id: 'vision-ai',
             name: 'Vision AI',
             tagline: 'Recognition engine for real-world interaction.',
             description: 'Enable customers to scan faces, environments, or products and receive instant recommendations that bridge physical and digital experiences.',
-            price: 'Custom deployment'
+            price: 'Custom deployment',
+            route: '/products/visionai'
         },
         {
             id: 'ai-chat',
             name: 'AI Chat',
             tagline: 'Messaging redefined.',
             description: 'Flat monthly pricing with no cost per message. Automate conversations, trigger workflows, collect payments, and support users in one platform.',
-            price: 'From £299/mo'
+            price: 'From £299/mo',
+            route: '/products/aichat'
         }
     ];
 
     useSuggestedPrompt(prompt: string): void {
         this.aiPrompt = prompt;
+    }
+
+    scrollToTop(event?: Event): void {
+        event?.preventDefault();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    scrollToSection(sectionId: string, event?: Event): void {
+        event?.preventDefault();
+        const section = document.getElementById(sectionId);
+
+        if (!section) {
+            return;
+        }
+
+        const offset = 84;
+        const top = section.getBoundingClientRect().top + window.scrollY - offset;
+
+        window.scrollTo({
+            top,
+            behavior: 'smooth'
+        });
     }
 
     submitSupportTicket(): void {
